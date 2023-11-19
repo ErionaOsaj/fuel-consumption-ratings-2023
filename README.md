@@ -35,7 +35,7 @@ The dataset contains the following columns:
 
 9. **Fuel Consumption (L/100Km):**
    - The amount of fuel consumed by the vehicle per 100 kilometers traveled. It provides a measure of fuel efficiency.City       and highway fuel consumption ratings are shown in litres per 100 kilometres (L/100 km) - the combined rating (55% city,      45% hwy)
-   -      
+     
 10. **Hwy (L/100 km):**
     - The highway fuel consumption rating, representing the vehicle's fuel efficiency on the highway.
 
