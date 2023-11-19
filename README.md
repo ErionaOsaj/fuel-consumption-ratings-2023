@@ -54,6 +54,12 @@ The dataset contains the following columns:
 15. **Smog Rating:**
     - The tailpipe emissions of smog-forming pollutants rated on a scale from 1 (worst) to 10 (best).
 
+## Data Preprocessing
+In this Jupyter Notebook, we will perform the following data preprocessing steps:
+1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
+2. Data Formatting: We will format columns to ensure consistency and ease of analysis.
+3. Data Transformation: We may create new features or transform existing ones to better suit our analysis and visualization.
+
 ## Dataset Attributes
 
 **Categorical Attributes:**
@@ -83,7 +89,7 @@ _Ratio:_
 - Comb (mpg)
 - CO2 Emissions (g/km)
 
-  ## Quality of Data
+## Data quality
 In our effort to ensure the highest data quality for our analysis, we conducted an extensive examination of the dataset. Below are our key findings and the methodologies applied in each aspect of data quality assessment.
 
 ### Noise and Unexpected Values
@@ -111,9 +117,11 @@ In our effort to ensure the highest data quality for our analysis, we conducted 
   - CO2 Emissions (g/km): 23 missing values
   - CO2 Rating: 23 missing values
   - Smog Rating: 23 missing values
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/29bb55b1-3b3f-4258-aa30-069e43d71637)
 
 ### Duplicate Records
 - **Duplicate Check**: We verified that there are no duplicate records in our dataset using the `dataset.duplicated().sum()` function, ensuring the uniqueness and integrity of our data.
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/c11e818a-eed0-4e27-9d21-34b92af9cb80)
 
 ## Data Integration
 In our project, data integration plays a pivotal role in ensuring that we have a comprehensive and unified dataset for analysis. 
@@ -161,26 +169,25 @@ During our data cleaning process, we focused on enhancing the dataset's clarity 
 
 Here is the approach we used to clean our dataset:
 - We removed rows that had nonsensical values in 'Year' and 'Make' columns, which also contained null values across other attributes. This step was necessary to ensure the remaining data was free of noise and errors.
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/cb0cfb31-fe3a-44e4-8ff6-b753c08f4de1)
 
-```python
-year_noise_data = ['placeholder_year_value_1', 'placeholder_year_value_2']  # Replace placeholders with actual noise values.
-make_noise_data = ['placeholder_make_value_1', 'placeholder_make_value_2']  # Replace placeholders with actual noise values.
+## Dimensionality Reduction
+In the data preprocessing phase, we have also performed dimensionality reduction to simplify our model without losing important information.
 
-# Remove rows with noise in 'Year' and 'Make' columns
-dataset = dataset.drop(dataset[dataset['Year'].isin(year_noise_data) & dataset['Make'].isin(make_noise_data)].index)
-```
+### Redundant Feature Removal
+Some features in our dataset were found to be redundant, providing no additional information.
+- **Year Column Removal**: All entries in our dataset are from the year 2023; therefore, this feature does not provide any variance and has been dropped.
 
-### Smooth Noisy Data
+### Discretization and Binarization
+To enhance model performance and interpretability, we categorized engine sizes into discrete bins:
+- **# Binning engine size into two categories**
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/ddb1d788-2b50-4df3-a5b0-2bc7f7a4b9a0)
 
-Noisy data — or random error or variance in a measured variable — can obscure patterns. To smooth this out, we employed techniques such as binning, regression, and clustering. Binning methods for smoothing involve grouping a set of data points into bins to minimize the effect of minor observation errors. Regression and clustering can also help by creating models that predict noisy data points, or by segmenting data into clusters based on similarity, respectively.
+### Transformation
+We applied normalization to the CO2 emissions data to prepare for machine learning algorithms:
 
-In each step, we take great care to apply the most appropriate techniques that align with our analysis goals and the nature of our data, ensuring that our dataset's quality is upheld.
-
-## Data Preprocessing
-In this Jupyter Notebook, we will perform the following data preprocessing steps:
-1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
-2. Data Formatting: We will format columns to ensure consistency and ease of analysis.
-3. Data Transformation: We may create new features or transform existing ones to better suit our analysis and visualization.
+- **Normalize CO2 emissions data**: 
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/2f3a5db1-fbec-49d3-be20-e498cc1d23e7)
 
 ## Data Visualization
 We will utilize various Python libraries for data visualization, including but not limited to:
