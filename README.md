@@ -53,7 +53,36 @@ The dataset contains the following columns:
 
 15. **Smog Rating:**
     - The tailpipe emissions of smog-forming pollutants rated on a scale from 1 (worst) to 10 (best).
-    
+
+## Dataset Attributes
+
+**Categorical Attributes:**
+
+_Nominal:_
+- Make
+- Model
+- Vehicle Class
+- Transmission
+- Fuel Type
+
+_Ordinal:_
+- CO2 Rating
+- Smog Rating
+
+**Numerical Attributes:**
+
+_Interval:_
+- Year
+
+_Ratio:_
+- Engine Size (L)
+- Cylinders
+- Fuel Consumption (L/100 km)
+- Hwy (L/100 km)
+- Comb (L/100 km)
+- Comb (mpg)
+- CO2 Emissions (g/km)
+  
 ## Data Preprocessing
 In this Jupyter Notebook, we will perform the following data preprocessing steps:
 1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
