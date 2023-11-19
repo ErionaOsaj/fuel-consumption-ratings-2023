@@ -82,7 +82,76 @@ _Ratio:_
 - Comb (L/100 km)
 - Comb (mpg)
 - CO2 Emissions (g/km)
-  
+
+  ## Quality of Data
+In our effort to ensure the highest data quality for our analysis, we conducted an extensive examination of the dataset. Below are our key findings and the methodologies applied in each aspect of data quality assessment.
+
+### Noise and Unexpected Values
+
+- **Noise in 'Year' Column**: Unusual non-year values were detected in the 'Year' column using `dataset['Year'].unique()`. Found entries include 'Understanding the table', 'Model', 'Transmission', 'Fuel type', 'Fuel consumption', 'CO2 emissions', 'CO2 rating', 'Smog rating'.
+- **Noise in 'Make' Column**: We identified unexpected values in the 'Make' column with `dataset['Make'].unique()`. These include specific emissions information, fuel types, and transmission details such as 'the tailpipe emissions of carbon dioxide (in grams per kilometre) for combined city and highway driving', 'M = manual', '3 – 10 = Number of gears', 'X = regular gasoline', 'Z = premium gasoline', 'D = diesel', 'E = ethanol (E85)', 'N = natural gas'.
+
+> **Note**: The exploration for outliers will be conducted in Phase 2 of our project.
+
+### Missing Values
+
+- **Detection and Strategy**: We detected missing values in various columns using `dataset.isnull().sum(axis=0)`. The findings are as follows:
+  - Year: 15 missing values
+  - Make: 2 missing values
+  - Model: 23 missing values
+  - Vehicle Class: 23 missing values
+  - Engine Size (L): 23 missing values
+  - Cylinders: 23 missing values
+  - Transmission: 23 missing values
+  - Fuel Type: 23 missing values
+  - Fuel Consumption (L/100Km): 23 missing values
+  - Hwy (L/100 km): 23 missing values
+  - Comb (L/100 km): 23 missing values
+  - Comb (mpg): 23 missing values
+  - CO2 Emissions (g/km): 23 missing values
+  - CO2 Rating: 23 missing values
+  - Smog Rating: 23 missing values
+
+### Duplicate Records
+- **Duplicate Check**: We verified that there are no duplicate records in our dataset using the `dataset.duplicated().sum()` function, ensuring the uniqueness and integrity of our data.
+
+## Data Integration
+In our project, data integration plays a pivotal role in ensuring that we have a comprehensive and unified dataset for analysis. 
+
+- **Single Source Integration**: Our dataset is sourced exclusively from Kaggle, which simplifies the integration process. The dataset encompasses extensive information about vehicle fuel consumption ratings and emissions, making it a valuable resource for our analysis. We imported the dataset into our analytical environment using the following command:
+
+  ```python
+  dataset = pd.read_csv('Data/fuel-consumption-ratings-2023.csv', encoding='ISO-8859-1')
+
+## Aggregation
+In our dataset, we've implemented several aggregation techniques to distill and comprehend the data more effectively. These aggregations help in summarizing the dataset and provide us with insights into CO2 emissions and fuel consumption patterns:
+
+- **CO2 Emissions by Make**: We summarized the CO2 emissions data by the make of the vehicle. This aggregation allows us to observe which makes of vehicles tend to have higher or lower emissions on average.
+
+- **CO2 Emissions by Fuel Type**: We analyzed the CO2 emissions according to the type of fuel used. This helps us understand the emission levels associated with different types of fuel, from gasoline to electric variants.
+
+- **Fuel Consumption by Make**: We aggregated fuel consumption data by the vehicle's make, providing an average fuel consumption figure for each manufacturer. This is a crucial indicator of the efficiency and performance of different makes.
+
+- **Fuel Consumption by Fuel Type**: The dataset was also aggregated to show fuel consumption based on fuel type. It helps in comparing the efficiency of vehicles running on different fuel sources.
+
+The purpose of these aggregations is to:
+- Simplify the dataset by reducing the number of attributes or objects, making the data more manageable.
+- Adjust the scale of analysis from individual vehicles to broader categories such as make and fuel type.
+- Achieve more stable and less variable data, which can be advantageous for identifying broader trends and making informed decisions.
+
+Through these aggregated views, we gain a better understanding of the environmental impact and efficiency of vehicles, which is instrumental in driving forward our analysis and subsequent findings.
+
+## Sampling
+Sampling is a fundamental technique in data analysis, typically employed when dealing with large datasets. It enables statisticians and data analysts to perform preliminary investigations and derive conclusions without processing the entire dataset, which can be prohibitively expensive or time-consuming.
+
+In the context of our project:
+
+- Given our dataset comprises only 865 rows, full sampling is not essential for the preliminary or final analysis stages. The manageable size of our dataset allows us to conduct comprehensive examinations without the need to sample.
+- This advantageously positions us to utilize the complete dataset, providing the benefit of drawing insights from every available data point and ensuring that our analysis encompasses all the nuances and patterns present.
+- As such, we have opted to leverage the entire dataset for our analysis, ensuring that no detail, however minor, is overlooked in our pursuit of accuracy and depth in our findings.
+
+We recognize the value of sampling in larger datasets and are prepared to implement this technique should the scope of our data expand in the future. For now, our focus remains on making the most of the detailed and rich dataset at our disposal.
+
 ## Data Preprocessing
 In this Jupyter Notebook, we will perform the following data preprocessing steps:
 1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
