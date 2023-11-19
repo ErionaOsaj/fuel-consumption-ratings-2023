@@ -34,8 +34,8 @@ The dataset contains the following columns:
    - The type of fuel that the vehicle uses (e.g., gasoline, diesel, electric).
 
 9. **Fuel Consumption (L/100Km):**
-   - The amount of fuel consumed by the vehicle per 100 kilometers traveled. It provides a measure of fuel efficiency.
-
+   - The amount of fuel consumed by the vehicle per 100 kilometers traveled. It provides a measure of fuel efficiency.City       and highway fuel consumption ratings are shown in litres per 100 kilometres (L/100 km) - the combined rating (55% city,      45% hwy)
+   -      
 10. **Hwy (L/100 km):**
     - The highway fuel consumption rating, representing the vehicle's fuel efficiency on the highway.
 
@@ -46,13 +46,13 @@ The dataset contains the following columns:
     - The combined fuel consumption rating in miles per gallon (mpg). It provides an alternative measure of fuel efficiency.
 
 13. **CO2 Emissions (g/km):**
-    - The estimated amount of carbon dioxide (CO2) emitted by the vehicle per kilometer traveled. It indicates the environmental impact of the vehicle.
+    - The tailpipe emissions of carbon dioxide (in grams per kilometre) for combined city and highway driving. It indicates the environmental impact of the vehicle.
 
 14. **CO2 Rating:**
-    - A rating assigned to the vehicle based on its CO2 emissions. It is often part of environmental labeling initiatives.
+    - The tailpipe emissions of carbon dioxide rated on a scale from 1 (worst) to 10 (best).
 
 15. **Smog Rating:**
-    - A rating assigned to the vehicle based on its emissions that contribute to smog. It is often part of environmental labeling initiatives.
+    - The tailpipe emissions of smog-forming pollutants rated on a scale from 1 (worst) to 10 (best).
     
 ## Data Preprocessing
 In this Jupyter Notebook, we will perform the following data preprocessing steps:
