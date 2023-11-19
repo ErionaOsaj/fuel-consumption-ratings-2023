@@ -9,22 +9,51 @@ This dataset contains model-specific fuel consumption ratings and estimated carb
 
 ## Dataset Description
 The dataset contains the following columns:
-- Year
-- Make
-- Model
-- Vehicle Class
-- Engine Size (L)
-- Cylinders
-- Transmission
-- Fuel Type
-- Fuel Consumption (L/100 km)
-- Hwy (L/100 km)
-- Comb (L/100 km)
-- Comb (mpg)
-- CO2 Emissions (g/km)
-- CO2 Rating
-- Smog Rating
+1. **Year:**
+   - The model year of the vehicle, indicating when it was manufactured.
 
+2. **Make:**
+   - The brand or manufacturer of the vehicle.
+
+3. **Model:**
+   - The specific model name or designation of the vehicle.
+
+4. **Vehicle Class:**
+   - The category or type of the vehicle (e.g., sedan, SUV, truck) based on its intended use and design.
+
+5. **Engine Size (L):**
+   - The displacement of the vehicle's engine, measured in liters (L). the volume of fuel and air that can be pushed through a car's cylinders.
+          
+6. **Cylinders:**
+   - The number of cylinders in the vehicle's engine. This is an important factor in determining the engine's power and efficiency.
+
+7. **Transmission:**
+   - The type of transmission system used in the vehicle, specifying how power is transmitted from the engine to the wheels.
+
+8. **Fuel Type:**
+   - The type of fuel that the vehicle uses (e.g., gasoline, diesel, electric).
+
+9. **Fuel Consumption (L/100Km):**
+   - The amount of fuel consumed by the vehicle per 100 kilometers traveled. It provides a measure of fuel efficiency.
+
+10. **Hwy (L/100 km):**
+    - The highway fuel consumption rating, representing the vehicle's fuel efficiency on the highway.
+
+11. **Comb (L/100 km):**
+    - The combined fuel consumption rating, representing the vehicle's overall fuel efficiency in a mix of city and highway driving.
+
+12. **Comb (mpg):**
+    - The combined fuel consumption rating in miles per gallon (mpg). It provides an alternative measure of fuel efficiency.
+
+13. **CO2 Emissions (g/km):**
+    - The estimated amount of carbon dioxide (CO2) emitted by the vehicle per kilometer traveled. It indicates the environmental impact of the vehicle.
+
+14. **CO2 Rating:**
+    - A rating assigned to the vehicle based on its CO2 emissions. It is often part of environmental labeling initiatives.
+
+15. **Smog Rating:**
+    - A rating assigned to the vehicle based on its emissions that contribute to smog. It is often part of environmental labeling initiatives.
+    
 ## Data Preprocessing
 In this Jupyter Notebook, we will perform the following data preprocessing steps:
 1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
