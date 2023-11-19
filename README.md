@@ -117,10 +117,12 @@ In our effort to ensure the highest data quality for our analysis, we conducted 
   - CO2 Emissions (g/km): 23 missing values
   - CO2 Rating: 23 missing values
   - Smog Rating: 23 missing values
+  
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/29bb55b1-3b3f-4258-aa30-069e43d71637)
 
 ### Duplicate Records
 - **Duplicate Check**: We verified that there are no duplicate records in our dataset using the `dataset.duplicated().sum()` function, ensuring the uniqueness and integrity of our data.
+
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/c11e818a-eed0-4e27-9d21-34b92af9cb80)
 
 ## Data Integration
@@ -169,6 +171,7 @@ During our data cleaning process, we focused on enhancing the dataset's clarity 
 
 Here is the approach we used to clean our dataset:
 - We removed rows that had nonsensical values in 'Year' and 'Make' columns, which also contained null values across other attributes. This step was necessary to ensure the remaining data was free of noise and errors.
+  
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/cb0cfb31-fe3a-44e4-8ff6-b753c08f4de1)
 
 ## Dimensionality Reduction
@@ -180,13 +183,15 @@ Some features in our dataset were found to be redundant, providing no additional
 
 ### Discretization and Binarization
 To enhance model performance and interpretability, we categorized engine sizes into discrete bins:
-- **# Binning engine size into two categories**
+- **Binning engine size into two categories**
+  
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/ddb1d788-2b50-4df3-a5b0-2bc7f7a4b9a0)
 
 ### Transformation
 We applied normalization to the CO2 emissions data to prepare for machine learning algorithms:
 
-- **Normalize CO2 emissions data**: 
+- **Normalize CO2 emissions data**:
+  
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/2f3a5db1-fbec-49d3-be20-e498cc1d23e7)
 
 ## Data Visualization
