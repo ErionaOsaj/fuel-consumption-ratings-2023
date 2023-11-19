@@ -152,6 +152,30 @@ In the context of our project:
 
 We recognize the value of sampling in larger datasets and are prepared to implement this technique should the scope of our data expand in the future. For now, our focus remains on making the most of the detailed and rich dataset at our disposal.
 
+## Data Cleaning
+During our data cleaning process, we focused on enhancing the dataset's clarity and relevance by addressing entries with missing or irrelevant information.
+
+- **Eliminating Irrelevant Entries**: Specific entries contained data that were irrelevant or did not make sense, such as erroneous entries in the 'Year' and 'Make' columns. We identified these entries as noise in our data.
+
+- **Handling Rows with Null Values**: In instances where rows contained null values and coincided with the noisy data identified, we decided to remove these rows entirely from our dataset. This was done to ensure that our analysis would only be based on complete and accurate information.
+
+Here is the approach we used to clean our dataset:
+- We removed rows that had nonsensical values in 'Year' and 'Make' columns, which also contained null values across other attributes. This step was necessary to ensure the remaining data was free of noise and errors.
+
+```python
+year_noise_data = ['placeholder_year_value_1', 'placeholder_year_value_2']  # Replace placeholders with actual noise values.
+make_noise_data = ['placeholder_make_value_1', 'placeholder_make_value_2']  # Replace placeholders with actual noise values.
+
+# Remove rows with noise in 'Year' and 'Make' columns
+dataset = dataset.drop(dataset[dataset['Year'].isin(year_noise_data) & dataset['Make'].isin(make_noise_data)].index)
+```
+
+### Smooth Noisy Data
+
+Noisy data — or random error or variance in a measured variable — can obscure patterns. To smooth this out, we employed techniques such as binning, regression, and clustering. Binning methods for smoothing involve grouping a set of data points into bins to minimize the effect of minor observation errors. Regression and clustering can also help by creating models that predict noisy data points, or by segmenting data into clusters based on similarity, respectively.
+
+In each step, we take great care to apply the most appropriate techniques that align with our analysis goals and the nature of our data, ensuring that our dataset's quality is upheld.
+
 ## Data Preprocessing
 In this Jupyter Notebook, we will perform the following data preprocessing steps:
 1. Data Cleaning: We will check for and handle missing values and inconsistencies in the dataset.
