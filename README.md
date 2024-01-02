@@ -231,7 +231,7 @@ Any detected outliers were further investigated to determine whether they were t
 
 To understand the distribution of fuel consumption among the vehicles in our dataset, we visualized the 'Fuel Consumption (L/100Km)' using a boxplot and extracted key statistical values.
 
-# Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
+Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
 bp = plt.boxplot(dataset['Fuel Consumption (L/100Km)'], showmeans=True)
 ![Alt text](image.png)
 
