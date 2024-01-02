@@ -304,6 +304,7 @@ To examine highway fuel efficiency, we plotted a boxplot for 'Hwy (L/100 km)' wi
 
 ```python
 bp = plt.boxplot(dataset['Hwy (L/100 km)'], showmeans=True)
+```
 
 Median (5.0 L/100Km): The data's midpoint, with half of the vehicles being more efficient and the other half less so.
 Mean (5.23649 L/100Km): Slightly higher than the median, indicating the small right skew.
