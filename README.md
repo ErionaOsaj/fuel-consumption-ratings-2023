@@ -234,7 +234,7 @@ Example: We calculate the skewness for the 'Cylinders' feature in our dataset as
 ```python
 skewness = dataset['Cylinders'].skew()
 print(f"Skewness coefficient: {skewness}")
-
+```
 The skewness value gives us an indication of the asymmetry level in the distribution:
 
 - **Approximately Symmetric Distribution**:
@@ -288,7 +288,6 @@ Any detected outliers were further investigated to determine whether they were t
 
 To understand the distribution of fuel consumption among the vehicles in our dataset, we visualized the 'Fuel Consumption (L/100Km)' using a boxplot and extracted key statistical values.
 
-```python
 # Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
 bp = plt.boxplot(dataset['Fuel Consumption (L/100Km)'], showmeans=True)
 ![Alt text](image.png)
