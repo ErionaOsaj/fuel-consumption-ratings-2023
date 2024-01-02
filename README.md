@@ -1,4 +1,10 @@
-# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization
+# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization 
+
+## Overview
+This project is developed as a part  of the Master studies curriculum at the Faculty of Electrical and Computer Engineering (FIEK). It focuses on the essential aspects of data preprocessing and visualization, key areas in the field of data science and analytics.
+
+## Objective
+The primary objective of this project is to demonstrate comprehensive skills in handling, processing, and visualizing data. It encompasses various techniques and methodologies pertinent to cleaning, transforming, and interpreting data effectively.
 
 ## Team Members
 - Eriona Osaj
@@ -193,6 +199,99 @@ We applied normalization to the CO2 emissions data to prepare for machine learni
 - **Normalize CO2 emissions data**:
   
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/44554983/2f3a5db1-fbec-49d3-be20-e498cc1d23e7)
+
+
+
+
+
+## Phase 2: Outlier Detection and Data Exploration
+
+In this phase, we focused on identifying and managing outliers, correcting inaccurate discoveries, and conducting a thorough exploration of the dataset, including summarizing statistics and multivariate analysis.
+
+### Outlier Detection
+
+Outliers can significantly impact our analysis, leading to skewed results. Detecting and handling these is crucial for maintaining the integrity of our findings.
+
+We used boxplots to visualize and detect outliers in our numerical data. Here's how we did it:
+
+- `plt.boxplot(dataset['Engine Size (L)'], showmeans=True)`: This command generates a boxplot for the 'Engine Size (L)' column and shows the mean value. The boxplot provides a visual summary of the central tendency and dispersion of the data, as well as potential outliers.
+  
+  The following values were extracted from the 'Engine Size (L)' boxplot:
+  - Median: The middle value of the dataset when it is ordered from least to most.
+  - Mean: The average of the dataset, indicating central tendency.
+  - Minimums: The lowest value within the range that is not considered an outlier.
+  - Maximums: The highest value within the range that is not considered an outlier.
+
+- `extract_boxplot_values(bp)`: This custom function extracts and prints the median, mean, minimum, and maximum values from the boxplot object. It uses the matplotlib `boxplot` object to access the statistical properties of the plotted data.
+
+For the 'Engine Size (L)', we observed the following:
+Median Mean Minimum Maximum
+
+- Similarly, for the 'Cylinders' data: Median Mean Minimum Maximum
+
+### Addressing Inaccuracies
+
+Any detected outliers were further investigated to determine whether they were the result of data entry errors or other inaccuracies. If an outlier was determined to be inaccurate, it was corrected if possible or removed to prevent it from distorting our analysis.
+
+To understand the distribution of fuel consumption among the vehicles in our dataset, we visualized the 'Fuel Consumption (L/100Km)' using a boxplot and extracted key statistical values.
+
+```python
+# Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
+bp = plt.boxplot(dataset['Fuel Consumption (L/100Km)'], showmeans=True)
+![Alt text](image.png)
+
+We used extract_boxplot_values(bp) to retrieve the median, mean, minimum, and maximum from the boxplot:
+
+Median (12.1 L/100Km): Splits the dataset in half.
+Mean (12.4315 L/100Km): Indicates the average, suggesting a right skew.
+Minimum (4.4 L/100Km) and Maximum (21.3 L/100Km): Mark the range of typical values.
+
+### Highway Fuel Consumption Analysis
+
+To examine highway fuel efficiency, we plotted a boxplot for 'Hwy (L/100 km)' with the code:
+
+```python
+bp = plt.boxplot(dataset['Hwy (L/100 km)'], showmeans=True)
+
+Median (5.0 L/100Km): The data's midpoint, with half of the vehicles being more efficient and the other half less so.
+Mean (5.23649 L/100Km): Slightly higher than the median, indicating the small right skew.
+Minimum (3.0 L/100Km) and Maximum (8.0 L/100Km): Represent the typical range of highway fuel consumption.
+![Alt text](image-1.png)
+
+........
+
+### Outlier Removal
+
+We have performed outlier detection based on the statistical analysis conducted earlier. Outliers were identified as values that fall outside the range defined by our boxplot analysis.
+
+```python
+# Determine the number of rows that have outlier values
+number_of_rows = dataset[<various outlier conditions>].shape[0]
+
+# Print the number of outliers detected
+print(f"Number of outliers detected: {number_of_rows}")
+
+# Calculate the total number of rows in the original dataset
+print(f"Original dataset contained {dataset.shape[0]} rows.")
+
+# Identify indices of outliers for removal
+outliers_index = dataset[<various outlier conditions>].index
+
+# Remove the outliers from the dataset
+dataset.drop(outliers_index, inplace=True)
+
+# Print the new number of rows after outliers have been removed
+print(f"Dataset after dropping outliers contains {dataset.shape[0]} rows.")
+
+### Outlier Removal Results
+
+After applying our outlier detection criteria, we observed the following changes to our dataset:
+
+- **Original Dataset Size**: 833 rows.
+- **Detected Outliers**: 140 rows.
+- **Dataset After Outlier Removal**: 693 rows.
+
+The removal of 140 outliers significantly reduced our dataset size. This step is crucial for the accuracy of our project, as it ensures that our dataset does not include data points that are far outside the expected range. Cleaning the dataset from these outliers allows us to conduct a more reliable and representative statistical analysis in the later stages of our project.
 
 ## Data Visualization
 We will utilize various Python libraries for data visualization, including but not limited to:
