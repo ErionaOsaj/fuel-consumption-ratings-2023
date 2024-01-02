@@ -1,4 +1,10 @@
-# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization
+# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization 
+
+## Overview
+This project is developed as a part  of the Master studies curriculum at the Faculty of Electrical and Computer Engineering (FIEK). It focuses on the essential aspects of data preprocessing and visualization, key areas in the field of data science and analytics.
+
+## Objective
+The primary objective of this project is to demonstrate comprehensive skills in handling, processing, and visualizing data. It encompasses various techniques and methodologies pertinent to cleaning, transforming, and interpreting data effectively.
 
 ## Team Members
 - Eriona Osaj
