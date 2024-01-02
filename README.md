@@ -315,7 +315,7 @@ Minimum (3.0 L/100Km) and Maximum (8.0 L/100Km): Represent the typical range of 
 
 ### Outlier Removal
 
-We have performed outlier detection based on the statistical analysis conducted earlier. Outliers were identified as values that fall outside the range defined by our boxplot analysis.
+We have performed outlier detection based on the statistical analysis conducted earlier form the boxplots and from using z-score for rows that have too many outliers. Outliers were identified as values that fall outside the range defined by our boxplot analysis.
 
 ```python
 # Determine the number of rows that have outlier values
@@ -335,16 +335,13 @@ dataset.drop(outliers_index, inplace=True)
 
 # Print the new number of rows after outliers have been removed
 print(f"Dataset after dropping outliers contains {dataset.shape[0]} rows.")
-
+```
 ### Outlier Removal Results
 
 After applying our outlier detection criteria, we observed the following changes to our dataset:
 
 - **Original Dataset Size**: 833 rows.
-- **Detected Outliers**: 140 rows.
-- **Dataset After Outlier Removal**: 693 rows.
-
-The removal of 140 outliers significantly reduced our dataset size. This step is crucial for the accuracy of our project, as it ensures that our dataset does not include data points that are far outside the expected range. Cleaning the dataset from these outliers allows us to conduct a more reliable and representative statistical analysis in the later stages of our project.
+- **Dataset After Outlier Removal**: 818 rows.
 
 ## Data Visualization
 We will utilize various Python libraries for data visualization, including but not limited to:
