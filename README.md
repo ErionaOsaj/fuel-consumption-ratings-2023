@@ -313,6 +313,36 @@ Minimum (3.0 L/100Km) and Maximum (8.0 L/100Km): Represent the typical range of 
 
 ........
 
+### Multivariate statistics
+
+Correlation analysis is essential for understanding the relationships between different variables in a dataset. In our vehicle dataset, we explore how different metrics such as engine size, fuel consumption, and emissions ratings are interrelated. The following heatmap visualizes the correlation matrix, providing a color-coded representation of the correlation coefficients.
+
+#### Insights from the Correlation Heatmap
+
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/ef008bc2-8507-4d4c-8cd9-e3504909e2c9)
+
+
+*Figure: Heatmap of correlation coefficients between vehicle metrics.*
+
+The heatmap allows us to quickly grasp the strength and direction of relationships:
+
+- **Positive Correlations (Red tones)**: These indicate a direct relationship where an increase in one variable tends to be associated with an increase in another. For example, 'Cylinders' show a strong positive correlation with 'CO2 Emissions (g/km)', suggesting that vehicles with more cylinders tend to emit more CO2.
+
+- **Negative Correlations (Blue tones)**: These signify an inverse relationship where an increase in one variable tends to be associated with a decrease in another. A notable example is between 'CO2 Rating' and 'Fuel Consumption (L/100km)', indicating that vehicles with a better CO2 rating typically consume less fuel.
+
+- **Neutral Correlations (White tones)**: Near-zero values suggest no significant linear relationship between the variables.
+
+##### Key Observations:
+
+- 'Engine Size (L)' correlates strongly with 'Cylinders' and fuel consumption-related metrics, implying that larger engines are generally less fuel-efficient and produce higher emissions.
+
+- 'CO2 Rating' has a notably strong negative correlation with fuel consumption and emissions metrics. This inverse relationship highlights that as fuel efficiency improves, CO2 ratings tend to be higher, denoting a lower environmental impact.
+
+- 'Smog Rating' shows a moderate negative correlation with engine-related metrics, suggesting that higher engine sizes and fuel consumption could lead to lower smog ratings.
+
+By understanding these correlations, we can better prepare our data for modeling and infer which features might be most significant in predicting vehicle emissions and efficiency.
+
+
 ### Outlier Removal
 
 We have performed outlier detection based on the statistical analysis conducted earlier form the boxplots and from using z-score for rows that have too many outliers. Outliers were identified as values that fall outside the range defined by our boxplot analysis.
