@@ -1,4 +1,4 @@
-# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization 
+# Fuel Consumption Ratings 2023 - Data Preprocessing and Visualization - FIEK 2023/2024
 
 ## Overview
 This project is developed as a part  of the Master studies curriculum at the Faculty of Electrical and Computer Engineering (FIEK). It focuses on the essential aspects of data preprocessing and visualization, key areas in the field of data science and analytics.
@@ -208,7 +208,7 @@ We applied normalization to the CO2 emissions data to prepare for machine learni
 
 In this phase, we focused on identifying and managing outliers, correcting inaccurate discoveries, and conducting a thorough exploration of the dataset, including summarizing statistics and multivariate analysis.
 
-### Outlier Detection
+### Outlier and skewness etection using IQR (Boxplots)  
 
 Outliers can significantly impact our analysis, leading to skewed results. Detecting and handling these is crucial for maintaining the integrity of our findings.
 
@@ -224,10 +224,63 @@ We used boxplots to visualize and detect outliers in our numerical data. Here's 
 
 - `extract_boxplot_values(bp)`: This custom function extracts and prints the median, mean, minimum, and maximum values from the boxplot object. It uses the matplotlib `boxplot` object to access the statistical properties of the plotted data.
 
-For the 'Engine Size (L)', we observed the following:
-Median Mean Minimum Maximum
+Here is an example of boxplot:
+<img width="422" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/032eca42-0bab-4c23-a631-37eef46ab8ab">
+### Skewness
 
-- Similarly, for the 'Cylinders' data: Median Mean Minimum Maximum
+Skewness is a statistical metric that gives us an idea of the symmetry, or lack thereof, in the data distribution. The skewness coefficient is a single numerical value that reflects the shape of the distribution of values in a dataset.
+
+Example: We calculate the skewness for the 'Cylinders' feature in our dataset as follows:
+```python
+skewness = dataset['Cylinders'].skew()
+print(f"Skewness coefficient: {skewness}")
+
+The skewness value gives us an indication of the asymmetry level in the distribution:
+
+- **Approximately Symmetric Distribution**:
+  - A skewness value between -0.5 and 0.5 means the distribution is approximately symmetric.
+
+- **Moderately Skewed Distribution**:
+  - A skewness value between -1 and -0.5 indicates moderate negative skewness (left-skewed).
+  - A skewness value between 0.5 and 1 indicates moderate positive skewness (right-skewed).
+
+- **Highly Skewed Distribution**:
+  - A skewness value less than -1 indicates a highly negative skewness (left-skewed).
+  - A skewness value greater than 1 indicates a highly positive skewness (right-skewed).
+
+
+From boxplots and from function that displays skewness we can see that some of our data are skewed :
+- **Engine Size (L)** - Right-skewed
+  - Skewness coefficient: 1.0260918957977176
+  - Interpretation: The majority of vehicles have smaller engines, with fewer vehicles having larger engines.
+
+- **Cylinders** - Right-skewed
+  - Skewness coefficient: 1.3003254083126115
+  - Interpretation: Most vehicles have a lower number of cylinders, with fewer vehicles having a higher number of cylinders.
+
+- **Fuel Consumption (L/100Km)** - Right-skewed
+  - Skewness coefficient: 0.6917887375909869
+  - Interpretation: Vehicles generally have lower fuel consumption, with fewer instances of high fuel consumption.
+
+- **Hwy (L/100 km)** - Right-skewed
+  - Skewness coefficient: 0.883049860122652
+  - Interpretation: The distribution of highway fuel consumption is such that most vehicles are more fuel-efficient, with some exceptions having high consumption rates.
+
+- **Comb (L/100 km)** - Right-skewed
+  - Skewness coefficient: 0.7340232375008856
+  - Interpretation: The combined fuel consumption metric also shows a right-skew, indicating a concentration of vehicles with lower consumption values.
+
+- **CO2 Emissions (g/km)** - Slightly right-skewed
+  - Skewness coefficient: 0.63581867933566
+  - Interpretation: The CO2 emissions show a slight right-skew, implying a larger concentration of vehicles with emissions on the lower end.
+
+- **CO2 Rating** - Slightly right-skewed
+  - Skewness coefficient: 0.02460774858363436
+  - Interpretation: This near-zero skewness suggests that the CO2 Rating is almost symmetrically distributed.
+
+- **Smog Rating** - Left-skewed
+  - Skewness coefficient: -0.8602475026142282
+  - Interpretation: The Smog Rating distribution leans towards higher values, with a tail extending towards the lower end.
 
 ### Addressing Inaccuracies
 
