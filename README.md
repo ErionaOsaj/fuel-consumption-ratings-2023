@@ -226,6 +226,35 @@ We used boxplots to visualize and detect outliers in our numerical data. Here's 
 
 Here is an example of boxplot:
 <img width="422" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/032eca42-0bab-4c23-a631-37eef46ab8ab">
+
+Any detected outliers were further investigated to determine whether they were the result of data entry errors or other inaccuracies. If an outlier was determined to be inaccurate, it was corrected if possible or removed to prevent it from distorting our analysis.
+
+To understand the distribution of fuel consumption among the vehicles in our dataset, we visualized the 'Fuel Consumption (L/100Km)' using a boxplot and extracted key statistical values.
+
+# Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
+bp = plt.boxplot(dataset['Fuel Consumption (L/100Km)'], showmeans=True)
+![Alt text](image.png)
+
+We used extract_boxplot_values(bp) to retrieve the median, mean, minimum, and maximum from the boxplot:
+
+Median (12.1 L/100Km): Splits the dataset in half.
+Mean (12.4315 L/100Km): Indicates the average, suggesting a right skew.
+Minimum (4.4 L/100Km) and Maximum (21.3 L/100Km): Mark the range of typical values.
+
+### Highway Fuel Consumption Analysis
+
+To examine highway fuel efficiency, we plotted a boxplot for 'Hwy (L/100 km)' with the code:
+
+```python
+bp = plt.boxplot(dataset['Hwy (L/100 km)'], showmeans=True)
+```
+
+Median (5.0 L/100Km): The data's midpoint, with half of the vehicles being more efficient and the other half less so.
+Mean (5.23649 L/100Km): Slightly higher than the median, indicating the small right skew.
+Minimum (3.0 L/100Km) and Maximum (8.0 L/100Km): Represent the typical range of highway fuel consumption.
+![Alt text](image-1.png)
+
+........
 ### Skewness
 
 Skewness is a statistical metric that gives us an idea of the symmetry, or lack thereof, in the data distribution. The skewness coefficient is a single numerical value that reflects the shape of the distribution of values in a dataset.
@@ -282,37 +311,6 @@ From boxplots and from function that displays skewness we can see that some of o
   - Skewness coefficient: -0.8602475026142282
   - Interpretation: The Smog Rating distribution leans towards higher values, with a tail extending towards the lower end.
 
-### Addressing Inaccuracies
-
-Any detected outliers were further investigated to determine whether they were the result of data entry errors or other inaccuracies. If an outlier was determined to be inaccurate, it was corrected if possible or removed to prevent it from distorting our analysis.
-
-To understand the distribution of fuel consumption among the vehicles in our dataset, we visualized the 'Fuel Consumption (L/100Km)' using a boxplot and extracted key statistical values.
-
-# Generate a boxplot for the 'Fuel Consumption (L/100Km)' with the mean indicated
-bp = plt.boxplot(dataset['Fuel Consumption (L/100Km)'], showmeans=True)
-![Alt text](image.png)
-
-We used extract_boxplot_values(bp) to retrieve the median, mean, minimum, and maximum from the boxplot:
-
-Median (12.1 L/100Km): Splits the dataset in half.
-Mean (12.4315 L/100Km): Indicates the average, suggesting a right skew.
-Minimum (4.4 L/100Km) and Maximum (21.3 L/100Km): Mark the range of typical values.
-
-### Highway Fuel Consumption Analysis
-
-To examine highway fuel efficiency, we plotted a boxplot for 'Hwy (L/100 km)' with the code:
-
-```python
-bp = plt.boxplot(dataset['Hwy (L/100 km)'], showmeans=True)
-```
-
-Median (5.0 L/100Km): The data's midpoint, with half of the vehicles being more efficient and the other half less so.
-Mean (5.23649 L/100Km): Slightly higher than the median, indicating the small right skew.
-Minimum (3.0 L/100Km) and Maximum (8.0 L/100Km): Represent the typical range of highway fuel consumption.
-![Alt text](image-1.png)
-
-........
-
 ### Multivariate statistics
 
 Correlation analysis is essential for understanding the relationships between different variables in a dataset. In our vehicle dataset, we explore how different metrics such as engine size, fuel consumption, and emissions ratings are interrelated. The following heatmap visualizes the correlation matrix, providing a color-coded representation of the correlation coefficients.
@@ -341,6 +339,30 @@ The heatmap allows us to quickly grasp the strength and direction of relationshi
 - 'Smog Rating' shows a moderate negative correlation with engine-related metrics, suggesting that higher engine sizes and fuel consumption could lead to lower smog ratings.
 
 By understanding these correlations, we can better prepare our data for modeling and infer which features might be most significant in predicting vehicle emissions and efficiency.
+
+### Visualization of Z-Score Outliers in Engine Size Distribution
+
+In our data preprocessing steps, we've included an analysis of outliers within the 'Engine Size (L)' feature of our dataset. To identify these outliers, we've utilized the Z-score method. The following visualization aids in understanding the distribution of 'Engine Size (L)' and highlights the outliers detected through Z-scores.
+
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/a2f03513-02b5-4bfa-bba9-eb75d30fc164)
+
+
+*Figure: Engine Size (L) Distribution with Z-Score Outliers.*
+
+#### Interpretation of the Visualization:
+
+- **Data Points (Blue dots)**: Represent the engine sizes of individual vehicles within the dataset plotted against their index.
+
+- **Mean (Red dashed line)**: Depicts the average engine size across the dataset.
+
+- **Standard Deviation Regions**:
+  - **Within 1 STD (Yellow shaded area)**: Encompasses 68% of the data points, indicating one standard deviation from the mean.
+  - **Within 2 STD (Green shaded area)**: Covers 95% of the data points, indicating two standard deviations from the mean.
+  - **Within 3 STD (Blue shaded area)**: Represents 99.7% of the data points, indicating three standard deviations from the mean.
+
+- **Outliers (Red dots)**: These are the data points that lie beyond 3 standard deviations from the mean. These outliers are potential candidates for further scrutiny or removal to improve the robustness of subsequent analyses.
+
+The function `plot_z_score_distribution_remove_outliers` is responsible for generating this plot and removing outliers. It calculates Z-scores for the specified property (`Engine Size (L)` in this case), marks the mean and standard deviation intervals, and highlights outliers. This visual representation is crucial in making informed decisions about outlier treatment, which is a key step in ensuring the quality of our dataset for modeling purposes.
 
 
 ### Outlier Removal
