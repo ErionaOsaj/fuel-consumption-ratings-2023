@@ -547,6 +547,17 @@ plt.ylabel('Frequency')
 plt.show()
 ```
 
+### Multidimensional, static and interactive vizualization
+
+#### Scatter plots 
+
+##### Fuel Consumption vs. CO2 Emissions Scatter Plot
+
+The scatter plot above illustrates the relationship between fuel consumption (measured in liters per 100 kilometers) and CO2 emissions (measured in grams per kilometer) for a variety of vehicles. Each point on the plot corresponds to a single vehicle, with the point's color representing the engine size (in liters) according to the color scale on the right. Larger and warmer-colored points indicate vehicles with larger engines. The plot shows a clear trend: as fuel consumption increases, CO2 emissions tend to rise, which is consistent with larger-engine vehicles generally consuming more fuel and emitting more CO2.
+
+<img width="476" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/39accd52-501c-4a0a-9ab3-e8d6143e711e">
+
+
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
 The analysis is performed using Python v3.11.5.
