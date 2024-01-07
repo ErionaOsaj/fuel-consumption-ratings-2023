@@ -412,7 +412,7 @@ Some of our visualization goals include:
 
 #### Countplots
 
-A count plot is a type of bar chart that shows the frequency of items in different categories. In our project, we utilized a count plot to visualize the distribution of vehicles across various vehicle classes. This type of plot is particularly beneficial for categorical data where we want to compare the size of each category against others.
+A count plot is a type of bar chart that shows the frequency of items in different categories. In our project, we utilized a count plot to visualize the distribution of vehicles across various vehicle classes. This type of plot is particularly beneficial for categorical data where we want to compare the size of each category against others. We used countplots also for other categorical data but here we explain as example only for vehicle classes.
 
 Key reasons for using a count plot in our analysis:
 
@@ -432,7 +432,18 @@ From the count plot, we can observe that standard SUVs and small station wagons 
 
 This visualization is particularly useful for identifying the most and least common vehicle types, which can inform market trends and potential focus areas for environmental efficiency improvements. It is created using a count plot, which is an excellent tool for displaying categorical data frequencies. The varying colors help in distinguishing between the different vehicle classes at a glance.
 
-Understanding the distribution of vehicle classes is crucial for multiple stakeholders, including automotive manufacturers, environmental policymakers, and consumers, as it provides insights into market dynamics and potential areas for innovation and regulation.
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/b7547c26-e00d-4c1f-8390-b245c0f1e665)
+
+ Here is the code descripiton
+ 
+ ```python
+plt.figure(figsize=(10, 6)) # Set the size of the plot for better readability.
+sns.countplot(x='Vehicle Class', data=dataset) # Create a count plot using seaborn library. The 'x' parameter specifies the column for which we want to show the counts.
+plt.title('Count of Vehicles by Vehicle Class') # Add a title to the plot.
+plt.xticks(rotation=45) # Rotate the x-axis labels by 45 degrees for better visibility of the labels.
+plt.ylabel('Count') # Label the y-axis as 'Count'.
+plt.xlabel('Vehicle Class') # Label the x-axis as 'Vehicle Class'.
+plt.show() # Display the plot.
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
