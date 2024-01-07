@@ -444,12 +444,72 @@ plt.xticks(rotation=45) # Rotate the x-axis labels by 45 degrees for better visi
 plt.ylabel('Count') # Label the y-axis as 'Count'.
 plt.xlabel('Vehicle Class') # Label the x-axis as 'Vehicle Class'.
 plt.show() # Display the plot.
+```
+#### Piecharts
+
+A pie chart is a circular statistical graphic divided into slices to illustrate numerical proportion. In our project, we use a pie chart to represent the relative proportions of different vehicle classes within the dataset. This visualization provides an immediate visual cue about the share of each class, making it an effective tool for displaying the data composition.
+
+Key reasons for using a pie chart:
+
+1. **Proportion Visualization**: It provides a quick and easy way to compare the proportion of each vehicle class in the dataset. Each slice's size is proportional to the quantity it represents.
+
+2. **Intuitive for Composition**: Pie charts are particularly useful when you want to show a simple proportion of data points within a whole, highlighting segments like market share or production percentages.
+
+3. **Aesthetic Appeal**: They are visually appealing and can be easily understood by a wide audience, which makes them an excellent choice for presentations and summary reports.
+   
+##### Distribution of transmission types
+
+he pie chart titled "Distribution of Transmission Types" provides a visual breakdown of the various transmission types present within the vehicle dataset. Each segment of the pie chart corresponds to a type of vehicle transmission: Automatic, Manual, Continuously Variable (CVT), and Automated Manual/Sequential.
+
+Key Insights from the pie chart:
+
+- **Automated Manual/Sequential** transmission is the most prevalent type, constituting over half of the dataset, shown by the largest segment at 52.8%.
+- **Automatic** transmission types are also significant, making up 27.8% of the dataset.
+- **Continuously Variable (CVT)** transmissions account for a smaller portion of 11.4%.
+- **Manual** transmissions are the least common in this dataset, at 8.1%.
+
+<img width="390" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/a3cd5702-7754-4f87-b18b-97b2d8ed2584">
+
+#### Boxplot Analysis
+
+The boxplot is a powerful tool for visualizing the central tendency and dispersion of data. In this case, it is used to compare the CO2 emissions across different fuel types, which can be instrumental in environmental impact assessments, policy-making, and strategic planning for emission reductions.
+
+##### CO2 Emissions by Fuel Type
+
+The figure titled "CO2 Emissions by Fuel Type" is a boxplot that provides a statistical summary of the distribution of CO2 emissions for different fuel types, identified here as Z, X, D, and E.
+
+Key components of the boxplot:
+
+- **Central rectangle (the "box")**: Represents the interquartile range (IQR), showing the middle 50% of the data. The bottom and top of the box are the first (Q1) and third (Q3) quartiles, and the band inside the box is the median (Q2).
+- **Whiskers**: Indicate variability outside the upper and lower quartiles, extending to the minimum and maximum values within 1.5 * IQR from the Q1 and Q3. Points outside this range are often considered outliers.
+- **Color differentiation**: Each box is colored differently to visually separate the fuel types.
+
+Analysis of the boxplot:
+
+- Fuel type Z shows a wide IQR indicating significant variability in emissions, with a median above 250 g/km.
+- Fuel type X has a slightly smaller IQR, suggesting less variability, and a lower median than Z, indicating generally lower emissions.
+- Fuel types D and E have similar IQRs, which are narrower than Z and X, indicating less variability in emissions. Both have medians substantially lower than Z and X, which suggests these fuel types may be more efficient or cleaner-burning.
+
+
+
+Here is an example of how such a boxplot can be generated using Python's matplotlib library:
+
+```python
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='Fuel Type', y='CO2 Emissions (g/km)', data=dataset)
+plt.title('CO2 Emissions by Fuel Type')
+plt.xlabel('Fuel Type')
+plt.ylabel('CO2 Emissions (g/km)')
+plt.show()
+```
+
+
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
 The analysis is performed using Python v3.11.5.
 The required libraries (Pandas, Matplotlib, Seaborn) are included in the Anaconda distribution. 
-```
+
 
 ## Additional Resources
 - [Fuel Consumption Ratings Search Tool](https://www.nrcan.gc.ca/energy-efficiency/energy-efficiency-transportation/fuel-consumption-guide/21185)
