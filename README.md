@@ -503,7 +503,49 @@ plt.ylabel('CO2 Emissions (g/km)')
 plt.show()
 ```
 
+#### Histogram with Kernel Density Estimate (KDE)
 
+A histogram with a Kernel Density Estimate (KDE) provides a detailed view of data distribution, combining the specificity of a histogram with the smoothness of a KDE curve. The histogram illustrates the data's frequency within bins, while the KDE offers a smooth curve that represents the overall density and trends in the data. This dual visualization approach allows for an intuitive understanding of the data's structure, highlighting both the distribution's granularity and its underlying patterns.
+
+#### Distribution of Smog Rating
+
+The figure titled "Distribution of Smog Rating" depicts a histogram overlaid with a kernel density estimate (KDE) curve. This graph is designed to show the frequency distribution of smog ratings in the dataset.
+
+Key features of the histogram:
+
+- **Bars**: Represent the frequency of vehicles within each smog rating category. The height of each bar corresponds to the number of vehicles that fall into each rating bin.
+- **KDE Curve**: The smooth line that traverses the plot is a KDE curve, which estimates the probability density function of the smog rating variable. It helps to identify the distribution shape and the central tendency visually.
+
+Interpretation of the histogram:
+
+- The histogram bars indicate the number of vehicles that have received each smog rating score, providing a visual representation of the distribution.
+- The KDE curve suggests that there are peaks at certain smog ratings, indicating common values where a higher number of vehicles are rated.
+  
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/282ade61-ee38-4b28-922b-948113971a10)
+
+The code to generate this histogram with KDE is as follows:
+
+```python
+# Initialize the figure with a specified size for better visibility
+plt.figure(figsize=(10, 6))
+
+# Create a histogram with a kernel density estimate (KDE) overlay
+# 'bins' determine the number of divisions in the data range
+# 'kde=True' adds the Kernel Density Estimate plot on top of the histogram
+sns.histplot(dataset['Smog Rating'], bins=30, kde=True)
+
+# Set the title of the histogram for context
+plt.title('Distribution of Smog Rating')
+
+# Label the x-axis with the variable of interest
+plt.xlabel('Smog Rating')
+
+# Label the y-axis with 'Frequency' to denote the count of occurrences
+plt.ylabel('Frequency')
+
+# Display the plot on the screen
+plt.show()
+```
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
