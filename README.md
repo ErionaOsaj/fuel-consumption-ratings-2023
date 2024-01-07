@@ -395,16 +395,44 @@ After applying our outlier detection criteria, we observed the following changes
 - **Original Dataset Size**: 833 rows.
 - **Dataset After Outlier Removal**: 818 rows.
 
-## Data Visualization
+
+## Phase 3 : Data Visualization
 We will utilize various Python libraries for data visualization, including but not limited to:
 - Matplotlib
 - Seaborn
 - Pandas
+- Plotly
+- Ipywidgets (interact)
 
-Our visualization goals include:
+Some of our visualization goals include:
 - Exploring the distribution of fuel consumption across different vehicle classes.
 - Analyzing the relationship between engine size, fuel consumption, and CO2 emissions.
-- Visualizing trends in fuel consumption and emissions over the years.
+
+### Vizualization according to datatypes
+
+#### Countplots
+
+A count plot is a type of bar chart that shows the frequency of items in different categories. In our project, we utilized a count plot to visualize the distribution of vehicles across various vehicle classes. This type of plot is particularly beneficial for categorical data where we want to compare the size of each category against others.
+
+Key reasons for using a count plot in our analysis:
+
+1. **Simplicity and Clarity**: Count plots provide a straightforward visual summary of the data, showing the count of observations in each categorical bin using bars.
+
+2. **Comparison**: It allows for immediate comparison of the frequency between different categories. For instance, it can easily show which vehicle class is the most or least frequent in the dataset.
+
+3. **Data Quality Checks**: It helps in identifying data imbalances or anomalies, such as a class with unusually high or low counts, which might indicate data collection biases or errors.
+
+4. **Communication**: Count plots are widely recognized and understood, making them an excellent choice for communicating findings to a general audience.
+
+##### Count of Vehicles by Vehicle Class
+
+The count plot visualizes the distribution of vehicles across different classes, as extracted from the 2023 fuel consumption ratings dataset. The x-axis categorizes vehicles into full-size, SUVs (small, standard), compact, minicompact, two-seater, subcompact, station wagon (small, mid-size), pickup trucks (small, standard), minivan, and special purpose vehicles. The y-axis shows the number of vehicles in each category.
+
+From the count plot, we can observe that standard SUVs and small station wagons have the highest count, indicating their popularity or prevalence in the dataset. On the other hand, special purpose vehicles and small pickup trucks are less common.
+
+This visualization is particularly useful for identifying the most and least common vehicle types, which can inform market trends and potential focus areas for environmental efficiency improvements. It is created using a count plot, which is an excellent tool for displaying categorical data frequencies. The varying colors help in distinguishing between the different vehicle classes at a glance.
+
+Understanding the distribution of vehicle classes is crucial for multiple stakeholders, including automotive manufacturers, environmental policymakers, and consumers, as it provides insights into market dynamics and potential areas for innovation and regulation.
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
