@@ -395,22 +395,163 @@ After applying our outlier detection criteria, we observed the following changes
 - **Original Dataset Size**: 833 rows.
 - **Dataset After Outlier Removal**: 818 rows.
 
-## Data Visualization
+
+## Phase 3 : Data Visualization
 We will utilize various Python libraries for data visualization, including but not limited to:
 - Matplotlib
 - Seaborn
 - Pandas
+- Plotly
+- Ipywidgets (interact)
 
-Our visualization goals include:
+Some of our visualization goals include:
 - Exploring the distribution of fuel consumption across different vehicle classes.
 - Analyzing the relationship between engine size, fuel consumption, and CO2 emissions.
-- Visualizing trends in fuel consumption and emissions over the years.
+
+### Vizualization according to datatypes
+
+#### Countplots
+
+A count plot is a type of bar chart that shows the frequency of items in different categories. In our project, we utilized a count plot to visualize the distribution of vehicles across various vehicle classes. This type of plot is particularly beneficial for categorical data where we want to compare the size of each category against others. We used countplots also for other categorical data but here we explain as example only for vehicle classes.
+
+Key reasons for using a count plot in our analysis:
+
+1. **Simplicity and Clarity**: Count plots provide a straightforward visual summary of the data, showing the count of observations in each categorical bin using bars.
+
+2. **Comparison**: It allows for immediate comparison of the frequency between different categories. For instance, it can easily show which vehicle class is the most or least frequent in the dataset.
+
+3. **Data Quality Checks**: It helps in identifying data imbalances or anomalies, such as a class with unusually high or low counts, which might indicate data collection biases or errors.
+
+4. **Communication**: Count plots are widely recognized and understood, making them an excellent choice for communicating findings to a general audience.
+
+##### Count of Vehicles by Vehicle Class
+
+The count plot visualizes the distribution of vehicles across different classes, as extracted from the 2023 fuel consumption ratings dataset. The x-axis categorizes vehicles into full-size, SUVs (small, standard), compact, minicompact, two-seater, subcompact, station wagon (small, mid-size), pickup trucks (small, standard), minivan, and special purpose vehicles. The y-axis shows the number of vehicles in each category.
+
+From the count plot, we can observe that standard SUVs and small station wagons have the highest count, indicating their popularity or prevalence in the dataset. On the other hand, special purpose vehicles and small pickup trucks are less common.
+
+This visualization is particularly useful for identifying the most and least common vehicle types, which can inform market trends and potential focus areas for environmental efficiency improvements. It is created using a count plot, which is an excellent tool for displaying categorical data frequencies. The varying colors help in distinguishing between the different vehicle classes at a glance.
+
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/b7547c26-e00d-4c1f-8390-b245c0f1e665)
+
+ Here is the code descripiton
+ 
+ ```python
+plt.figure(figsize=(10, 6)) # Set the size of the plot for better readability.
+sns.countplot(x='Vehicle Class', data=dataset) # Create a count plot using seaborn library. The 'x' parameter specifies the column for which we want to show the counts.
+plt.title('Count of Vehicles by Vehicle Class') # Add a title to the plot.
+plt.xticks(rotation=45) # Rotate the x-axis labels by 45 degrees for better visibility of the labels.
+plt.ylabel('Count') # Label the y-axis as 'Count'.
+plt.xlabel('Vehicle Class') # Label the x-axis as 'Vehicle Class'.
+plt.show() # Display the plot.
+```
+#### Piecharts
+
+A pie chart is a circular statistical graphic divided into slices to illustrate numerical proportion. In our project, we use a pie chart to represent the relative proportions of different vehicle classes within the dataset. This visualization provides an immediate visual cue about the share of each class, making it an effective tool for displaying the data composition.
+
+Key reasons for using a pie chart:
+
+1. **Proportion Visualization**: It provides a quick and easy way to compare the proportion of each vehicle class in the dataset. Each slice's size is proportional to the quantity it represents.
+
+2. **Intuitive for Composition**: Pie charts are particularly useful when you want to show a simple proportion of data points within a whole, highlighting segments like market share or production percentages.
+
+3. **Aesthetic Appeal**: They are visually appealing and can be easily understood by a wide audience, which makes them an excellent choice for presentations and summary reports.
+   
+##### Distribution of transmission types
+
+he pie chart titled "Distribution of Transmission Types" provides a visual breakdown of the various transmission types present within the vehicle dataset. Each segment of the pie chart corresponds to a type of vehicle transmission: Automatic, Manual, Continuously Variable (CVT), and Automated Manual/Sequential.
+
+Key Insights from the pie chart:
+
+- **Automated Manual/Sequential** transmission is the most prevalent type, constituting over half of the dataset, shown by the largest segment at 52.8%.
+- **Automatic** transmission types are also significant, making up 27.8% of the dataset.
+- **Continuously Variable (CVT)** transmissions account for a smaller portion of 11.4%.
+- **Manual** transmissions are the least common in this dataset, at 8.1%.
+
+<img width="390" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/a3cd5702-7754-4f87-b18b-97b2d8ed2584">
+
+#### Boxplot Analysis
+
+The boxplot is a powerful tool for visualizing the central tendency and dispersion of data. In this case, it is used to compare the CO2 emissions across different fuel types, which can be instrumental in environmental impact assessments, policy-making, and strategic planning for emission reductions.
+
+##### CO2 Emissions by Fuel Type
+
+The figure titled "CO2 Emissions by Fuel Type" is a boxplot that provides a statistical summary of the distribution of CO2 emissions for different fuel types, identified here as Z, X, D, and E.
+
+Key components of the boxplot:
+
+- **Central rectangle (the "box")**: Represents the interquartile range (IQR), showing the middle 50% of the data. The bottom and top of the box are the first (Q1) and third (Q3) quartiles, and the band inside the box is the median (Q2).
+- **Whiskers**: Indicate variability outside the upper and lower quartiles, extending to the minimum and maximum values within 1.5 * IQR from the Q1 and Q3. Points outside this range are often considered outliers.
+- **Color differentiation**: Each box is colored differently to visually separate the fuel types.
+
+Analysis of the boxplot:
+
+- Fuel type Z shows a wide IQR indicating significant variability in emissions, with a median above 250 g/km.
+- Fuel type X has a slightly smaller IQR, suggesting less variability, and a lower median than Z, indicating generally lower emissions.
+- Fuel types D and E have similar IQRs, which are narrower than Z and X, indicating less variability in emissions. Both have medians substantially lower than Z and X, which suggests these fuel types may be more efficient or cleaner-burning.
+
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/3f30f1f5-96b1-493b-99a1-4e1de324bd82)
+
+Here is an example of how such a boxplot can be generated using Python's matplotlib library:
+
+```python
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='Fuel Type', y='CO2 Emissions (g/km)', data=dataset)
+plt.title('CO2 Emissions by Fuel Type')
+plt.xlabel('Fuel Type')
+plt.ylabel('CO2 Emissions (g/km)')
+plt.show()
+```
+
+#### Histogram with Kernel Density Estimate (KDE)
+
+A histogram with a Kernel Density Estimate (KDE) provides a detailed view of data distribution, combining the specificity of a histogram with the smoothness of a KDE curve. The histogram illustrates the data's frequency within bins, while the KDE offers a smooth curve that represents the overall density and trends in the data. This dual visualization approach allows for an intuitive understanding of the data's structure, highlighting both the distribution's granularity and its underlying patterns.
+
+#### Distribution of Smog Rating
+
+The figure titled "Distribution of Smog Rating" depicts a histogram overlaid with a kernel density estimate (KDE) curve. This graph is designed to show the frequency distribution of smog ratings in the dataset.
+
+Key features of the histogram:
+
+- **Bars**: Represent the frequency of vehicles within each smog rating category. The height of each bar corresponds to the number of vehicles that fall into each rating bin.
+- **KDE Curve**: The smooth line that traverses the plot is a KDE curve, which estimates the probability density function of the smog rating variable. It helps to identify the distribution shape and the central tendency visually.
+
+Interpretation of the histogram:
+
+- The histogram bars indicate the number of vehicles that have received each smog rating score, providing a visual representation of the distribution.
+- The KDE curve suggests that there are peaks at certain smog ratings, indicating common values where a higher number of vehicles are rated.
+  
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/282ade61-ee38-4b28-922b-948113971a10)
+
+The code to generate this histogram with KDE is as follows:
+
+```python
+# Initialize the figure with a specified size for better visibility
+plt.figure(figsize=(10, 6))
+
+# Create a histogram with a kernel density estimate (KDE) overlay
+# 'bins' determine the number of divisions in the data range
+# 'kde=True' adds the Kernel Density Estimate plot on top of the histogram
+sns.histplot(dataset['Smog Rating'], bins=30, kde=True)
+
+# Set the title of the histogram for context
+plt.title('Distribution of Smog Rating')
+
+# Label the x-axis with the variable of interest
+plt.xlabel('Smog Rating')
+
+# Label the y-axis with 'Frequency' to denote the count of occurrences
+plt.ylabel('Frequency')
+
+# Display the plot on the screen
+plt.show()
+```
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
 The analysis is performed using Python v3.11.5.
 The required libraries (Pandas, Matplotlib, Seaborn) are included in the Anaconda distribution. 
-```
+
 
 ## Additional Resources
 - [Fuel Consumption Ratings Search Tool](https://www.nrcan.gc.ca/energy-efficiency/energy-efficiency-transportation/fuel-consumption-guide/21185)
