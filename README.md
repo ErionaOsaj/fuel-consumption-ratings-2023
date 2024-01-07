@@ -577,6 +577,12 @@ Such a plot is especially useful for identifying patterns and outliers in the da
 
 <img width="466" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/57dac434-8b4c-4008-a4fb-8cd019ebb1d8">
 
+####  t-SNE visualization
+
+t-SNE visualization clusters vehicles by make based on high-dimensional data, effectively reducing the complexity to two dimensions while preserving the local structure of the dataset. This technique ensures that similar vehicles are represented by points close together, while dissimilar ones are farther apart. The plot is a powerful tool for pattern recognition and outlier detection, revealing the natural groupings within the vehicle dataset according to their characteristics such as engine size, cylinders, fuel consumption, and CO2 emissions.
+This is interactive vizualization where you can filter data based on all categorical data.
+
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/3d570761-fcbb-4e0e-9c42-81a50b0d7b30)
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
