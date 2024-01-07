@@ -584,6 +584,14 @@ This is interactive vizualization where you can filter data based on all categor
 
 ![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/3d570761-fcbb-4e0e-9c42-81a50b0d7b30)
 
+#### 3d Scatter plots
+
+##### 3D Scatter Plot of Engine Size, CO2 Emissions, and Cylinders
+
+The figure is a 3D scatter plot providing a multi-dimensional view of vehicles' engine size, CO2 emissions, and the number of cylinders. Each axis represents one of these three variables: the 'x' axis shows engine size (L), the 'y' axis represents CO2 emissions (g/km), and the 'z' axis indicates the number of cylinders. Points are colored according to fuel type, with each color representing a different fuel type such as Z, X, D, or E. This visualization technique allows for an in-depth analysis of how these variables interact with each other and how they are distributed across different fuel types. It serves as a valuable tool for identifying trends and correlations in automotive data, which can inform design and environmental considerations.
+
+<img width="468" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/4ad55d25-b96d-4365-9cac-2ced418174c0">
+
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
 The analysis is performed using Python v3.11.5.
