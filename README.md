@@ -557,6 +557,26 @@ The scatter plot above illustrates the relationship between fuel consumption (me
 
 <img width="476" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/39accd52-501c-4a0a-9ab3-e8d6143e711e">
 
+#### Polar plot 
+
+
+##### Comparison of Vehicles by Fuel Consumption and CO2 Emissions
+
+This polar plot offers a comparison of various vehicle classes based on their fuel consumption and CO2 emissions. Each segment's radial distance from the center represents fuel consumption, while the angular position indicates the level of CO2 emissions. Different symbols and colors are used to distinguish between vehicle classes, such as full-size, SUVs (small and standard), compacts, and more. This type of visualization is useful for observing trends and outliers in multidimensional data, allowing for an at-a-glance comparison of how different vehicle classes stack up in terms of environmental impact. The plot is interactive and you can filter by vehicle class.
+
+The essence of this visualization is to explore the relationship between a vehicle's fuel consumption and its CO2 emissions while also considering the vehicle's engine size and class. It provides a multidimensional view of the data, where you can observe the following:
+Clusters: Groupings of similar vehicle types based on fuel consumption and emissions.
+Outliers: Any vehicles with particularly high or low values for these metrics.
+Trends: For example, if larger vehicles (like full-size SUVs) tend to consume more fuel and emit more CO2, which would appear as a cluster of larger symbols further from the center of the plot.
+
+- The angular axis (represented by the circle's degrees) correlates with CO2 emissions. Each vehicle's emissions level positions it at a certain angle along the circumference, effectively categorizing vehicles by emissions in a circular layout.
+- The radial distance from the center of the plot to a data point corresponds to the vehicle's fuel consumption. The further a point is from the center, the higher the fuel consumption of that vehicle.
+- Distinct shapes and colors represent different vehicle classes, enabling quick visual differentiation. For instance, diamonds may represent SUVs, while squares may represent compact cars. The color coding further aids in distinguishing between subcategories within these classes, like small versus standard SUVs.
+
+Such a plot is especially useful for identifying patterns and outliers in the data. For instance, if larger vehicles such as full-size cars and standard pickup trucks are clustered towards the outer edge of the plot, this indicates higher fuel consumption. In contrast, more fuel-efficient vehicle classes would be closer to the center.
+
+<img width="466" alt="image" src="https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/57dac434-8b4c-4008-a4fb-8cd019ebb1d8">
+
 
 ## Tools and Environment
 We have used Jupyter Notebook for the analysis and visualization.
