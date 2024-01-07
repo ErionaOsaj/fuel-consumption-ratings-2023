@@ -490,7 +490,7 @@ Analysis of the boxplot:
 - Fuel type X has a slightly smaller IQR, suggesting less variability, and a lower median than Z, indicating generally lower emissions.
 - Fuel types D and E have similar IQRs, which are narrower than Z and X, indicating less variability in emissions. Both have medians substantially lower than Z and X, which suggests these fuel types may be more efficient or cleaner-burning.
 
-
+![image](https://github.com/ErionaOsaj/fuel-consumption-ratings-2023/assets/27639068/3f30f1f5-96b1-493b-99a1-4e1de324bd82)
 
 Here is an example of how such a boxplot can be generated using Python's matplotlib library:
 
